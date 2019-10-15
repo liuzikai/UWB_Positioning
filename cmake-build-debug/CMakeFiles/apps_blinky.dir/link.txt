@@ -1,0 +1,2 @@
+/usr/bin/ar qc bin/targets/dwm1001_blinky/app/apps/blinky/libapps_blinky.a  CMakeFiles/apps_blinky.dir/apps/blinky/src/main.c.o
+/usr/bin/ranlib bin/targets/dwm1001_blinky/app/apps/blinky/libapps_blinky.a

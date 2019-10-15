@@ -1,0 +1,2 @@
+/usr/bin/ar qc bin/targets/dwm1001_blinky/app/sys/flash_map/libsys_flash_map.a  CMakeFiles/sys_flash_map.dir/repos/apache-mynewt-core/sys/flash_map/src/flash_map.c.o
+/usr/bin/ranlib bin/targets/dwm1001_blinky/app/sys/flash_map/libsys_flash_map.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc bin/targets/dwm1001_blinky/app/sys/sysinit/libsys_sysinit.a  CMakeFiles/sys_sysinit.dir/repos/apache-mynewt-core/sys/sysinit/src/sysinit.c.o
+/usr/bin/ranlib bin/targets/dwm1001_blinky/app/sys/sysinit/libsys_sysinit.a

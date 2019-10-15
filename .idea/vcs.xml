@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/apache-mynewt-core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/apache-mynewt-nimble" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/mcuboot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/mcuboot/sim/mcuboot-sys/mbedtls" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/mynewt-dw1000-core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/mynewt-timescale-lib" vcs="Git" />
+  </component>
+</project>

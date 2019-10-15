@@ -1,0 +1,17 @@
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/cmake_blinky.elf.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/sys_sysinit.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/libc_baselibc.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/sys_mfg.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/hw_cmsis-core.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/sys_log_stub.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/kernel_os.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/hw_mcu_nordic_nrf52xxx.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/hw_mcu_nordic.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/hw_hal.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/util_mem.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/sys_flash_map.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/hw_bsp_dwm1001.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/dwm1001_blinky-sysinit-app.dir
+/Users/liuzikai/Files/UWB_Master/cmake-build-debug/CMakeFiles/apps_blinky.dir

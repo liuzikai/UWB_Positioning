@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../bin/targets/dwm1001_blinky/generated/include/sysflash/sysflash.h
+flash_map/flash_map.h
+../bin/targets/dwm1001_blinky/generated/include/sysflash/flash_map/flash_map.h
+
+../repos/apache-mynewt-core/libc/baselibc/include/inttypes.h
+klibc/extern.h
+-
+stdint.h
+-
+stddef.h
+-
+
+../repos/apache-mynewt-core/libc/baselibc/include/klibc/extern.h
+
+../repos/apache-mynewt-core/sys/flash_map/include/flash_map/flash_map.h
+stdbool.h
+-
+inttypes.h
+-
+
+/Users/liuzikai/Files/UWB_Master/bin/targets/dwm1001_blinky/generated/src/dwm1001_blinky-sysdown-app.c
+
+/Users/liuzikai/Files/UWB_Master/bin/targets/dwm1001_blinky/generated/src/dwm1001_blinky-sysflash.c
+sysflash/sysflash.h
+/Users/liuzikai/Files/UWB_Master/bin/targets/dwm1001_blinky/generated/src/sysflash/sysflash.h
+
+/Users/liuzikai/Files/UWB_Master/bin/targets/dwm1001_blinky/generated/src/dwm1001_blinky-sysinit-app.c
+

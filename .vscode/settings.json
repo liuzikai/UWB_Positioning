@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "uwb_rng.h": "c"
+    }
+}
