@@ -1,2 +1,0 @@
-/usr/bin/ar qc bin/targets/dwm1001_blinky/app/sys/log/stub/libsys_log_stub.a  CMakeFiles/sys_log_stub.dir/repos/apache-mynewt-core/sys/log/stub/src/log.c.o
-/usr/bin/ranlib bin/targets/dwm1001_blinky/app/sys/log/stub/libsys_log_stub.a

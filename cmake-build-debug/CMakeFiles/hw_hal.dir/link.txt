@@ -1,2 +1,0 @@
-/usr/bin/ar qc bin/targets/dwm1001_blinky/app/hw/hal/libhw_hal.a  CMakeFiles/hw_hal.dir/repos/apache-mynewt-core/hw/hal/src/hal_common.c.o CMakeFiles/hw_hal.dir/repos/apache-mynewt-core/hw/hal/src/hal_flash.c.o
-/usr/bin/ranlib bin/targets/dwm1001_blinky/app/hw/hal/libhw_hal.a

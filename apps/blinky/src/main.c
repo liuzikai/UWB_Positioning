@@ -46,6 +46,7 @@ timer_ev_cb(struct os_event *ev)
 
     ++g_task1_loops;
     hal_gpio_toggle(g_led_pin);
+    hal_gpio_toggle(LED_3);
 
     os_callout_reset(&blinky_callout, OS_TICKS_PER_SEC);
 }
@@ -83,6 +84,7 @@ main(int argc, char **argv)
 
     g_led_pin = LED_BLINK_PIN;
     hal_gpio_init_out(g_led_pin, 1);
+    hal_gpio_init_out(LED_3, 1);
 
     init_timer();
     while (1) {

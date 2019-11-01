@@ -1,2 +1,0 @@
-/usr/bin/ar qc bin/targets/dwm1001_blinky/app/hw/cmsis-core/libhw_cmsis-core.a  CMakeFiles/hw_cmsis-core.dir/repos/apache-mynewt-core/hw/cmsis-core/src/cmsis_nvic.c.o
-/usr/bin/ranlib bin/targets/dwm1001_blinky/app/hw/cmsis-core/libhw_cmsis-core.a

@@ -1,3 +1,0 @@
-target.app: apps/twr_tag_tdma
-target.bsp: "@mynewt-dw1000-core/hw/bsp/dwm1001"
-target.build_profile: debug

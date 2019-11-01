@@ -19,7 +19,7 @@
 
 .app.db
 .app
-bin
+bin/
 obj
 tags
 .gdb_history
@@ -29,6 +29,6 @@ tags
 .DS_Store
 *.swp
 *.swo
-cmake-build-debug
+cmake-build-debug/
 targets
 repos
