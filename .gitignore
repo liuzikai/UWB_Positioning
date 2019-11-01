@@ -29,4 +29,6 @@ tags
 .DS_Store
 *.swp
 *.swo
+cmake-build-debug
+targets
 repos
