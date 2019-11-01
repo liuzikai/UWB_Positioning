@@ -1,2 +1,0 @@
-/usr/bin/ar qc bin/targets/dwm1001_blinky/app/sys/mfg/libsys_mfg.a  CMakeFiles/sys_mfg.dir/repos/apache-mynewt-core/sys/mfg/src/mfg.c.o
-/usr/bin/ranlib bin/targets/dwm1001_blinky/app/sys/mfg/libsys_mfg.a

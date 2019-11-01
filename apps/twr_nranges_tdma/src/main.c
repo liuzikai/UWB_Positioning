@@ -237,9 +237,9 @@ tof_comp_cb(uint16_t short_addr)
 int main(int argc, char **argv){
     int rc;
 
-    sysinit();
+    sysinit();  // Mynewt function
     uwbcfg_register(&uwb_cb);
-    conf_load();
+    conf_load();  // Mynewt function
 
     hal_gpio_init_out(LED_BLINK_PIN, 1);
     hal_gpio_init_out(LED_1, 1);
@@ -250,6 +250,7 @@ int main(int argc, char **argv){
     udev->config.dblbuffon_enabled = false;
     uwb_set_dblrxbuff(udev, udev->config.dblbuffon_enabled);
 
+    // Get a pre-written (?) interface
     struct nrng_instance* nrng = (struct nrng_instance*)uwb_mac_find_cb_inst_ptr(udev, UWBEXT_NRNG);
     assert(nrng);
 
@@ -272,7 +273,8 @@ int main(int argc, char **argv){
     assert(pan);
     struct uwb_rng_instance* rng = (struct uwb_rng_instance*)uwb_mac_find_cb_inst_ptr(udev, UWBEXT_RNG);
     assert(rng);
-    
+
+    // Set clock calibration packets (ccp) roles
     if (udev->role&UWB_ROLE_CCP_MASTER) {
         /* Start as clock-master */
         uwb_ccp_start(ccp, CCP_ROLE_MASTER);
@@ -281,6 +283,8 @@ int main(int argc, char **argv){
         uwb_ccp_set_tof_comp_cb(ccp, tof_comp_cb);
     }
 
+    // Set Personal Area Network (PAN)
+    // Pan Master handing out slots and addresses
     if (udev->role&UWB_ROLE_PAN_MASTER) {
         /* As pan-master, first lookup our address and slot_id */
         struct image_version fw_ver;

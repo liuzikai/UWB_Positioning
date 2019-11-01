@@ -1,2 +1,0 @@
-/usr/bin/ar qc bin/targets/dwm1001_blinky/app/util/mem/libutil_mem.a  CMakeFiles/util_mem.dir/repos/apache-mynewt-core/util/mem/src/mem.c.o
-/usr/bin/ranlib bin/targets/dwm1001_blinky/app/util/mem/libutil_mem.a

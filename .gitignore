@@ -30,3 +30,6 @@ tags
 *.swp
 *.swo
 repos
+.vscode
+.idea
+cmake-build-debug
