@@ -179,6 +179,7 @@ slot_cb(struct dpl_event * ev){
     } else {
         /* Range with the anchors */
         if (idx%MYNEWT_VAL(NRNG_NTAGS) != udev->slot_id) {
+            // If current slot is not for this tag, return
             return;
         }
 
@@ -237,9 +238,9 @@ tof_comp_cb(uint16_t short_addr)
 int main(int argc, char **argv){
     int rc;
 
-    sysinit();  // Mynewt function
+    sysinit();  // Instances of nrng, ccp, pan, rng are initialized here
     uwbcfg_register(&uwb_cb);
-    conf_load();  // Mynewt function
+    conf_load();
 
     hal_gpio_init_out(LED_BLINK_PIN, 1);
     hal_gpio_init_out(LED_1, 1);
@@ -250,20 +251,24 @@ int main(int argc, char **argv){
     udev->config.dblbuffon_enabled = false;
     uwb_set_dblrxbuff(udev, udev->config.dblbuffon_enabled);
 
-    // Get a pre-written (?) interface
+    // Get the nrng stack instance
     struct nrng_instance* nrng = (struct nrng_instance*)uwb_mac_find_cb_inst_ptr(udev, UWBEXT_NRNG);
     assert(nrng);
 
+    // Initialize an event nrng_complete_event
     dpl_event_init(&nrng_complete_event, nrng_complete_cb, nrng);
 
+    // Register the callback
+    /* After each mac event, corresponding callback in EACH uwb_mac_interface will be called in order */
     struct uwb_mac_interface cbs = (struct uwb_mac_interface){
         .id = UWBEXT_APP0,
         .inst_ptr = nrng,
         .complete_cb = complete_cb
     };
-
     uwb_mac_append_interface(udev, &cbs);
-    udev->slot_id = 0xffff;
+
+
+    udev->slot_id = 0xffff;  // slot has not been assigned
 #if MYNEWT_VAL(BLEPRPH_ENABLED)
     ble_init(udev->euid);
 #endif
