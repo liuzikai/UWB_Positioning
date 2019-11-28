@@ -30,5 +30,5 @@ tags
 *.swp
 *.swo
 cmake-build-debug/
-targets
+targets/
 repos
