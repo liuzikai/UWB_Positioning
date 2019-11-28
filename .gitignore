@@ -29,6 +29,13 @@ tags
 .DS_Store
 *.swp
 *.swo
+<<<<<<< HEAD
 cmake-build-debug/
 targets/
 repos
+=======
+repos
+.vscode
+.idea
+cmake-build-debug
+>>>>>>> 6197f78808f7e649fd7302cb4af811ee9f4a02f9
