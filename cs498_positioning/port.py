@@ -67,7 +67,8 @@ def grab_and_cal(info):
     k_pos[1][0] = kal_man[1]
     k_pos[2][0] = kal_man[2]
     acc_pos += pos
-    print(k_pos[0][0])
+    count += 1
+    print(acc_pos[2][0])
 
     return 1
 
@@ -97,20 +98,23 @@ class PlotThread (threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
     def run(self):
+        global pos, acc_pos, count
         while True:
             plt.cla()
             
             ax.scatter(ref_xs, ref_ys, ref_zs, c='b', marker='*')
             # ax.scatter([pos[0]], [pos[1]], [pos[2]], c='r', marker='*')
-            ax.scatter([acc_pos[0]/count, acc_pos[1]/count, acc_pos[2]/count], c='r', marker='*')
-            acc_pos = np.array([[0.0],[0.0],[0.0]])
-            count = 0
+            if count != 0:
+                ax.scatter([acc_pos[0]/count], [acc_pos[1]/count], [acc_pos[2]/count], c='r', marker='*')
+                print(count)
+                acc_pos = np.array([[0.0],[0.0],[0.0]])
+                count = 0
             # ax.scatter([k_pos[0]], [k_pos[1]], [k_pos[2]], c='g', marker='*')
             
             ax.set_xlim3d(-1, 4)
             ax.set_ylim3d(-1, 6)
-            ax.set_zlim3d(-0.5, 3)
-            plt.pause(0.05)
+            ax.set_zlim3d(0, 3)
+            plt.pause(0.5)
 
         plt.show()
     
