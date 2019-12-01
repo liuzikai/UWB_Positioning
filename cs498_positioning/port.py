@@ -8,16 +8,18 @@ import kalman
 import time
 
 ref_nodes = {}
-pos = np.array([[0.0],[0.0],[0.0]])
-k_pos = np.array([[0.0],[0.0],[0.0]])
-acc_pos = np.array([[0.0],[0.0],[0.0]])
+pos = np.array([0.0,0.0,0.0])
+k_pos = np.array([0.0,0.0,0.0])
+acc_pos = np.array([0.0,0.0,0.0])
 count = 0
+iter_time = 4
+baseSum = np.array([0.0,0.0,0.0])
 
 def grab_and_cal(info):
     global ref_nodes
     global pos, k_pos, acc_pos
     global ax
-    global count
+    global count, iter_time
 
     dist = {}
     rough_split = info.split('[')
@@ -60,26 +62,32 @@ def grab_and_cal(info):
     B = np.dot(AT, B)
     rev = np.linalg.inv(np.dot(AT, A))
     pos = np.dot(rev, B)
-    posT = np.transpose(pos)
-    pre_k = np.array([pos[0][0], pos[1][0], pos[2][0]])
-    kal_man = kalman.kalman_filter(pre_k)
-    k_pos[0][0] = kal_man[0]
-    k_pos[1][0] = kal_man[1]
-    k_pos[2][0] = kal_man[2]
+
+    it_count = 0
+    while it_count < iter_time:
+        pos = nt_iter(pos)
+    
+    k_pos = kalman.kalman_filter(pos)
+
     acc_pos += pos
     count += 1
-    print(acc_pos[2][0])
+    # print(acc_pos[2])
 
     return 1
 
-
 def init():
     global ref_nodes
+    global baseSum
     
     ref_nodes["1818"] = np.array([0.1, 1.0, 1.37])
     ref_nodes["5632"] = np.array([3.2, 0, 0])
     ref_nodes["3884"] = np.array([0, 4.8, 0])
     ref_nodes["1665"] = np.array([2.6, 4.8, 2.15])
+    baseSum = ref_nodes["1818"] + ref_nodes["5632"] + ref_nodes["3884"] + ref_nodes["1665"]
+
+def nt_iter(pos):
+    global baseSum
+    return pos - np.dot(np.eye(3)/8.0, pos * 8 - 2 * baseSum)
 
 class DataThread (threading.Thread):
     def __init__(self):
@@ -90,7 +98,7 @@ class DataThread (threading.Thread):
             data = raw_data.decode(errors='ignore')
             grab_and_cal(data)
             f = open("data.txt","a")
-            f.write("x: " + str(pos[0][0]) + ", y: " + str(pos[1][0]) + ", z: " + str(pos[2][0]) + '\n')
+            f.write("x: " + str(pos[0]) + ", y: " + str(pos[1]) + ", z: " + str(pos[2]) + '\n')
             f.close()
         tn.close()
 
@@ -107,7 +115,7 @@ class PlotThread (threading.Thread):
             if count != 0:
                 ax.scatter([acc_pos[0]/count], [acc_pos[1]/count], [acc_pos[2]/count], c='r', marker='*')
                 print(count)
-                acc_pos = np.array([[0.0],[0.0],[0.0]])
+                acc_pos = np.array([0.0,0.0,0.0])
                 count = 0
             # ax.scatter([k_pos[0]], [k_pos[1]], [k_pos[2]], c='g', marker='*')
             
