@@ -3,6 +3,13 @@ from config import *
 
 
 def process_info(info):
+
+    """
+    Process a line of info from data source and extract distance
+    :param info: a line of info. See below for format sample
+    :return: directory of {node_id (str): distance}
+    """
+
     dist = {}
     rough_split = info.split('[')
     if len(rough_split) <= 2:
@@ -28,6 +35,13 @@ def process_info(info):
 
 
 def calc_position(dist):
+
+    """
+    Calculate position based on distances to reference point
+    :param dist: directory of {node_id (str): distance}
+    :return: 1D np.array of position [x, y, z]
+    """
+
     A = np.array([0, 0, 0])
     B = np.array([0])
 
@@ -47,12 +61,12 @@ def calc_position(dist):
     pos = np.dot(rev, B)
     posT = np.transpose(pos)
 
-    return posT
+    return posT[0]
 
 
 if __name__ == '__main__':
     dist = process_info(
-        "{\"utime\": 1322787487,\"nrng\": {\"seq\": 193,\"mask\": 15,\"rng\": [\"3.513\",\"3.909\",\"2.267\",\"2.680\"],\"uid\": [\"1818\",\"5632\",\"3884\",\"1665\"]}}")
+        '{"utime": 1322787487,"nrng": {"seq": 193,"mask": 15,"rng": ["3.513","3.909","2.267","2.680"],"uid": ["1818","5632","3884","1665"]}}')
     if dist is not None:
         print(dist)
     else:

@@ -5,3 +5,5 @@ ref_nodes = {"1818": np.array([0.1, 1.0, 1.37]),
              "3884": np.array([0, 4.8, 0]),
              "1665": np.array([2.6, 4.8, 2.15])}
 base_node = "1818"
+
+plot_margin = 0.5
