@@ -35,10 +35,11 @@ class DataThread(threading.Thread):
             data = raw_data.decode(errors='ignore')
 
             raw_data_file.write(data)
-            print(raw_data)
+            # print(raw_data)
             dist = process_info(data)
             if (dist is None):
                 continue;
+            # print(dist)
             pos = calc_position(dist)
 
             write_point(pos)
@@ -71,7 +72,7 @@ class PlotThread(threading.Thread):
                 if pos_count != 0:
                     plot_point([pos_sum[0] / pos_count, pos_sum[1] / pos_count, pos_sum[2] / pos_count])
                     print(pos_count)
-                    print("(%.3f, %.3f, %.3f)" % (dist_sum[0] / pos_count, dist_sum[1] / pos_count, dist_sum[2] / pos_count))
+                    # print("(%.3f, %.3f, %.3f)" % (dist_sum[0] / pos_count, dist_sum[1] / pos_count, dist_sum[2] / pos_count))
                     pos_sum = np.array([0.0, 0.0, 0.0])
                     pos_count = 0
 
