@@ -9,7 +9,7 @@ fig = plt.figure()
 ax = Axes3D(fig)
 
 # Pre-process reference nodes and cube
-ref_points = np.column_stack(ref_nodes.values())
+ref_points = np.column_stack(list(ref_nodes.values()))
 ref_coor_m = [np.min(ref_points, axis=1), np.max(ref_points, axis=1)]
 
 # Setup figure
@@ -23,10 +23,8 @@ def plot_ref_nodes():
     Plot reference nodes and a minimal box that enclose all reference nodes
     :return: None
     """
-    print(ref_points[0])
     ax.scatter(ref_points[0], ref_points[1], ref_points[2], c='b', s=80, marker='*')
     for m in itertools.product([0, 1], repeat=2):  # min(0) max(1) combinations
-        print(m)
         # X min to max
         ax.plot([ref_coor_m[0][0], ref_coor_m[1][0]],
                 [ref_coor_m[m[0]][1], ref_coor_m[m[0]][1]],
@@ -49,6 +47,7 @@ def plot_point(coor, c='r', marker='*'):
     :param marker: marker passes to plot()
     :return: None
     """
+    print("(%f, %f, %f)" % (coor[0], coor[1], coor[2]))
     ax.plot([coor[0]], [coor[1]], [coor[2]], c=c, marker=marker)
 
 
@@ -64,7 +63,7 @@ def plot_points(points, c='r', marker='*'):
 
 
 def plot_clear():
-    plt.clf()
+    plt.cla()
 
 
 if __name__ == '__main__':
