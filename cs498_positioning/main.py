@@ -29,6 +29,8 @@ class DataThread(threading.Thread):
 
         if self.input_data_file == "":  # collect and store data from telnet port
             tn = telnetlib.Telnet(host="127.0.0.1", port=19021)
+            for i in range(20):
+                tn.read_very_eager()  # clean up buffer
             raw_data_file = open("data/%s_raw_data.txt" % time_stamp, "w", buffering=1)  # write to file immediately
             data_file_open("data/%s_pos.csv" % time_stamp, self.comment)
         else:  # re-process data from raw data file
@@ -36,7 +38,8 @@ class DataThread(threading.Thread):
             data_file_open("data/%s_reprocess_%s_pos.csv" %
                            (self.input_data_file.split("/")[-1].replace(".", "_"), time_stamp),
                            self.comment)
-            time.sleep(1)  # wait for another thread to get started
+            
+        time.sleep(1)  # wait for another thread to get started
 
         utime_init = None
         time_init = time.time()
@@ -114,17 +117,20 @@ class PlotThread(threading.Thread):
                 dist_data = {}
 
             if len(dist.keys()) >= 4:
-                # print(dist)
+                print(dist)
                 pos = calc_position(dist)
+                
                 if not self.disable_plot:
                     plot_point([pos[0], pos[1], pos[2]])
+
                 write_point(pos)
 
                 if not self.disable_plot:
                     plt.draw()
-                    # plt.show()
+                    plt.show()
 
-            to_sleep = time_init + 1 * loop_counter - time.time()
+            plt.pause(0.1)
+            to_sleep = time_init + 5 * loop_counter - time.time()
             if to_sleep > 0:
                 time.sleep(to_sleep)
 
@@ -136,7 +142,7 @@ if __name__ == '__main__':
     input_data_file = input("Input data file (relative path, empty for collecting data from telnet): ")
 
     data_thread = DataThread(input("Please input comment for data file: "), input_data_file)
-    plot_thread = PlotThread(disable_plot=True)
+    plot_thread = PlotThread(disable_plot=False)
     data_thread.start()
     plot_thread.start()
     data_thread.join()

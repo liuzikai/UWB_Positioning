@@ -53,7 +53,7 @@ if __name__ == '__main__':
         data = raw_data.decode(errors='ignore')
 
         raw_data_file.write(data)
-        # print(data)
+        print(data)
 
         dist = process_info_to_range(data)
         if dist is not None:
