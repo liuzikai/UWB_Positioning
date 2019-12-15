@@ -54,6 +54,8 @@ if __name__ == '__main__':
         dist = process_info_to_range(data)
         print(dist)
 
+        write_point([dist["1818"]])
+
     data_file_close()
     raw_data_file.close()
     tn.close()
