@@ -1,1 +1,0 @@
-SEGGER J-Link V6.52a - Real time terminal output
