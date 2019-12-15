@@ -52,9 +52,9 @@ if __name__ == '__main__':
         # print(data)
 
         dist = process_info_to_range(data)
-        print(dist)
-
-        write_point([dist["1818"]])
+        if dist is not None:
+            print(dist)
+            write_point([dist["1818"]])
 
     data_file_close()
     raw_data_file.close()
