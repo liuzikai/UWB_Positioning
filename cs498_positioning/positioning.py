@@ -35,7 +35,7 @@ def process_info(info):
     return dist
 
 
-pre_process_threshold = 999
+pre_process_threshold = 0.5
 
 
 def pre_process_data(ranges):
