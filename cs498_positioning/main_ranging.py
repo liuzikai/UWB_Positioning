@@ -41,9 +41,12 @@ if __name__ == '__main__':
     time_stamp = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
 
     tn = telnetlib.Telnet(host="127.0.0.1", port=19021)
-    tn.read_eager()  # clean up buffer
+    
     raw_data_file = open("data/rng_%s_raw_data.txt" % time_stamp, "w", buffering=1)  # write to file immediately
     data_file_open("data/rng_%s.csv" % time_stamp, input("Please input comment for data file: "))
+
+    for i in range(10):
+        tn.read_very_eager()  # clean up buffer
 
     while True:
         raw_data = tn.read_until('\n'.encode())
