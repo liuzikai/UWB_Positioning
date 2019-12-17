@@ -17,12 +17,12 @@ def process_info_to_range(info):
     if len(rough_split) <= 2:
         return None
     dis_list = rough_split[1].split(']')[0].split(',')
-    if len(dis_list) != 1:
-        return None
+    # if len(dis_list) != 1:
+    #     return None
     id_list = rough_split[2].split(']')[0].split(',')
-    if len(id_list) != 1:
-        return None
-    if (len(dis_list) != len(id_list)) | (len(dis_list) != 1):
+    # if len(id_list) != 1:
+    #     return None
+    if len(dis_list) != len(id_list):
         return None
 
     for i in range(0, len(dis_list)):
@@ -30,8 +30,8 @@ def process_info_to_range(info):
         if id_list[i] in ref_nodes:
             dist[id_list[i]] = float(dis_list[i].strip('"'))
 
-    if len(dist) != 1:
-        return None
+    # if len(dist) != 1:
+    #     return None
 
     return dist
 
@@ -56,9 +56,9 @@ if __name__ == '__main__':
         print(data)
 
         dist = process_info_to_range(data)
-        if dist is not None:
-            print(dist)
-            write_point([dist["1818"]])
+        if "2151" in dist.keys():
+            print(dist["2151"])
+            write_point([dist["2151"]])
 
     data_file_close()
     raw_data_file.close()
