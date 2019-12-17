@@ -38,7 +38,7 @@ Position update frequency is much slower than raning frequency, so a bunch of da
 
 The Trilateration algorithm plus the least-squares method is used to calculate position.
 
-# License of files in THIS directory
+# License of Files in This Directory
 
 Copyright 2019 ZIKAI LIU and KERUI ZHU
 
