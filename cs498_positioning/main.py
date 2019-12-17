@@ -130,7 +130,7 @@ class PlotThread(threading.Thread):
                     plt.show()
 
             plt.pause(0.1)
-            to_sleep = time_init + 5 * loop_counter - time.time()
+            to_sleep = time_init + 1 * loop_counter - time.time()
             if to_sleep > 0:
                 time.sleep(to_sleep)
 
