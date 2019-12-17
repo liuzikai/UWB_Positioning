@@ -19,9 +19,9 @@
 #
 -->
 
-Based on [Decawave/mynewt-dw1000-apps: This project contains the example apps for use with the DW1000](https://github.com/Decawave/mynewt-dw1000-apps)
+This is a project of UWB positioning system based on Decawave DWM1001 (DW1000). The main portion of this repository is basically a fork of [Decawave/mynewt-dw1000-apps](https://github.com/Decawave/mynewt-dw1000-apps). The filtering and positioning part is in cs498_positioning folder. See [cs498_positioning/README](cs498_positioning/README.md) there.
 
-## Getting started
+## Getting Started with DWM1001 (Blinky)
 
 1. Download and install Apache Newt.
 
